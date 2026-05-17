@@ -6,6 +6,20 @@
 <title>De Baolse Bierdrinkers — Jan Donders</title>
 <meta name="description" content="Het zeventiende-eeuwse herbergtafereel van Jan Donders en het bier dat eruit voortkwam. Gebrouwen door De Dochter van de Korenaar, Baarle-Hertog.">
 
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://baolsebierdrinkers.nl/">
+<meta property="og:title" content="De Baolse Bierdrinkers — Jan Donders">
+<meta property="og:description" content="Een nieuw schilderij in oude stijl. Een herberg in Loveren, anno 1648. En het bier dat eruit voortkwam.">
+<meta property="og:image" content="https://baolsebierdrinkers.nl/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="814">
+<meta property="og:locale" content="nl_NL">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="De Baolse Bierdrinkers — Jan Donders">
+<meta name="twitter:description" content="Een nieuw schilderij in oude stijl. Een herberg in Loveren, anno 1648.">
+<meta name="twitter:image" content="https://baolsebierdrinkers.nl/images/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -216,28 +230,21 @@ blockquote cite {
 
 /* === PAINTING SECTION === */
 .painting-frame {
-  margin: 0 auto 40px;
-  max-width: 900px;
-  padding: 18px;
+  margin: 0 auto 20px;
+  max-width: 1000px;
+  padding: 16px;
   background: var(--paper-dark);
   border: 1px solid var(--rule);
   box-shadow:
     0 1px 0 var(--paper) inset,
-    0 20px 50px -20px rgba(42,24,16,0.35);
+    0 24px 60px -24px rgba(42,24,16,0.45),
+    0 4px 12px -4px rgba(42,24,16,0.2);
 }
-.painting-frame .canvas {
-  aspect-ratio: 4 / 3;
-  background:
-    linear-gradient(135deg, #8a6a3d 0%, #5a3d1f 50%, #3a2510 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--paper);
-  font-family: 'EB Garamond', serif;
-  font-style: italic;
-  font-size: 18px;
-  text-align: center;
-  padding: 24px;
+.painting-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--ink-soft);
 }
 .painting-caption {
   text-align: center;
@@ -246,6 +253,68 @@ blockquote cite {
   font-size: 16px;
   color: var(--ink-mute);
   margin-top: 18px;
+}
+
+/* === KUNSTENAARSTEKST === */
+.artist-statement {
+  margin: 60px auto;
+  max-width: 720px;
+  padding: 48px 48px 40px;
+  background: var(--paper-dark);
+  border: 1px solid var(--rule);
+  position: relative;
+  box-shadow:
+    0 1px 0 var(--paper) inset,
+    0 12px 30px -20px rgba(42,24,16,0.25);
+}
+.artist-statement::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+}
+.artist-statement .label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 6px;
+}
+.artist-statement h3 {
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+  font-size: 26px;
+  text-align: center;
+  margin: 0 0 32px;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+.artist-statement p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+  max-width: none;
+}
+.artist-statement p:last-of-type { margin-bottom: 0; }
+.artist-statement .signature {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px dotted var(--rule);
+  text-align: right;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-mute);
+}
+
+@media (max-width: 720px) {
+  .artist-statement { padding: 32px 24px 28px; margin: 40px auto; }
+  .artist-statement h3 { font-size: 22px; }
+  .artist-statement p { font-size: 17px; }
 }
 
 /* === FIGURE GRID === */
@@ -288,35 +357,7 @@ blockquote cite {
   margin-top: 2px;
 }
 
-/* === BEER SECTION (atlas-style) === */
-.beer-plate {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-  margin-top: 40px;
-}
-@media (max-width: 720px) { .beer-plate { grid-template-columns: 1fr; gap: 40px; } }
-
-.beer-bottle {
-  aspect-ratio: 1 / 1.6;
-  background: linear-gradient(180deg, transparent 0%, transparent 18%, #2d1810 18%, #1a0e08 88%, transparent 88%);
-  border-radius: 50% 50% 8px 8px / 8% 8% 4px 4px;
-  position: relative;
-  max-width: 280px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.beer-bottle::before {
-  content: 'fles­afbeelding';
-  font-family: 'EB Garamond', serif;
-  font-style: italic;
-  font-size: 14px;
-  color: var(--paper);
-  opacity: 0.5;
-}
+/* === BEER SECTION === */
 
 .spec-table {
   width: 100%;
@@ -348,6 +389,66 @@ blockquote cite {
   font-style: italic;
   color: var(--ink-soft);
   font-size: 17px;
+}
+
+/* === ATLAS PLATES === */
+.atlas-plates {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin: 40px 0;
+}
+@media (max-width: 820px) { .atlas-plates { grid-template-columns: 1fr; } }
+
+.atlas-plate {
+  margin: 0;
+  padding: 12px;
+  background: var(--paper-dark);
+  border: 1px solid var(--rule);
+  box-shadow:
+    0 1px 0 var(--paper) inset,
+    0 12px 30px -16px rgba(42,24,16,0.3);
+}
+.atlas-plate img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+}
+.atlas-plate figcaption {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-mute);
+  text-align: center;
+  padding: 12px 8px 4px;
+  line-height: 1.4;
+}
+.atlas-plate figcaption strong {
+  font-style: normal;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.beer-summary {
+  margin-top: 24px;
+}
+.beer-summary h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 14px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 8px;
 }
 
 /* === LOCATOR === */
@@ -453,7 +554,7 @@ footer .legal {
 <header class="hero">
   <div class="plate-label">Plaat I — Een schilderij en zijn bier</div>
   <h1>De Baolse Bierdrinkers</h1>
-  <p class="subtitle">Een zeventiende-eeuwse herberg in Loveren, geschilderd in Ulicoten.</p>
+  <p class="subtitle">Een nieuw schilderij in oude stijl. Een herberg in Loveren, anno 1648.</p>
   <div class="attribution">Een werk van Jan Donders &nbsp;·&nbsp; 2022 — 2026</div>
 </header>
 
@@ -467,21 +568,29 @@ footer .legal {
     <p class="lead">Tweeëntwintig figuren rond de schenktafel van een herberg op Loveren. Brood wordt gebroken, kip gekluifd, bier gedronken. Door het glas-in-loodraam achterin is de Belgische kerk zichtbaar.</p>
 
     <div class="painting-frame">
-      <div class="canvas">[ afbeelding van het schilderij — wordt later geplaatst ]</div>
+      <img src="images/de-baolse-bierdrinkers.jpg" alt="De Baolse Bierdrinkers — schilderij van Jan Donders. Een herberg in Loveren, 17e eeuw, met meer dan twintig figuren rond de schenktafel, een varken, hond, hanen en een glas-in-loodraam met zicht op de Belgische kerk." class="painting-image">
     </div>
-    <p class="painting-caption">De Baolse Bierdrinkers in de herberg van Loveren in de 17e eeuw, olie op doek, Jan Donders, voltooid 2026.</p>
+    <p class="painting-caption">De Baolse Bierdrinkers in de herberg van Loveren in de 17e eeuw, olieverf op doek, Jan Donders, voltooid 2026.</p>
 
-    <h3>Het verhaal</h3>
-    <p>Jan Donders, beeldend kunstenaar uit Ulicoten, raakte gefascineerd door de grootmeesters van de zeventiende eeuw — Vermeer, Rembrandt, en bovenal Jan Steen, die de herbergtaferelen tot kunst verhief. In de kroeg, met vrienden en wat bier, ontstond het idee om er zelf één te maken. Na ongeveer honderd mogelijke titels bleef er één hangen: <em>De Baolse Bierdrinkers</em>.</p>
-
-    <p>Vóór hij de eerste verf op het doek bracht, dook Jan in de geschiedenis. Via het Cultuurcentrum Baarle en de heemkundekring Amalia van Solms reconstrueerde hij de wereld waarin zijn tafereel zich afspeelt: een tijd waarin België en Nederland nog niet bestonden, de vlag oranje-wit-blauw was, en de hertogdommen plaatsmaakten voor nieuwe bestuurlijke kernen. Tussen Antwerpen, Turnhout en Breda bloeide de handelsgeest. Met paard en kar werd er gereisd, en herbergen op de driehoekige herdgangen — zoals Loveren — boden handelsreizigers eten, drinken en een nacht slaap. Boeren brouwden achter in hun schuurtjes bier. Zo ontstonden de bieren die later Belgische speciaalbieren zouden heten.</p>
+    <p style="margin-top: 48px;">In 2022 begon Jan Donders aan de voorstudies. Vier jaar werk, ruim honderd herbergtaferelen bestudeerd vóór de eerste penseelstreek, ruim vier uur per gezicht. Op 1 mei 2026 werd het doek onthuld in de Remigiuskerk in Baarle-Hertog, bij de opening van de eerste Grensloze Kunstroute — door de burgemeester van Baarle-Nassau, mw. Marjon de Hoon-Veelenturf, en de burgemeester van Baarle-Hertog, dhr. Philip Loots.</p>
 
     <blockquote>
       Niet in de schaduw van de grote meesters te kunnen staan, maar ik heb een poging gedaan…
       <cite>Jan Donders, bij de onthulling, 1 mei 2026</cite>
     </blockquote>
 
-    <p>Vier jaar werk. Meer dan honderd herbergtaferelen bestudeerd vóór de eerste penseelstreek. Ruim vier uur per gezicht. Op 1 mei 2026 werd het doek onthuld in de Remigiuskerk in Baarle-Hertog, bij de opening van de eerste Grensloze Kunstroute — door beide burgemeesters van Baarle.</p>
+    <div class="artist-statement">
+      <div class="label">Het verhaal — door de kunstenaar</div>
+      <h3>Het verhaal achter het schilderij</h3>
+
+      <p>In de 17e eeuw, anno 1648, eindigt de Spaanse bezetting en wordt de Vrede van Münster gesloten. De handelswegen tussen steden als Antwerpen, Turnhout, Breda, Tilburg en Utrecht worden hierdoor geïntensiveerd. Deze Heerdgangen resulteren in driehoekige pleintjes. In <em>Baerle</em> — toen nog met <em>ae</em> — was dit de driehoek nu bekend als Loveren.</p>
+
+      <p>Hier ontstond de eerste herberg van Baerle, welbekend onder de naam <em>Herberg De Swaen</em>. Bezoekers van deze herberg waren veelal de handelsreizigers, de boeren uit de omgeving en de dames van plezier. Het bier werd aangeleverd door de boeren uit de omgeving, gebrouwen achter in de schuur.</p>
+
+      <p>Het schilderij <em>De Baolse Bierdrinkers</em> is een tafereel uit deze tijd, met een moderne touch van de 21e eeuw. Inmiddels is het typische Baarlese bier ook weer verkrijgbaar in de Baarlese horeca en draagt ook de naam <em>De Baolse Bierdrinkers</em>.</p>
+
+      <div class="signature">— Aldus Jan Donders, kunstenaar.</div>
+    </div>
   </section>
 
   <!-- ====== DE FIGURANTEN ====== -->
@@ -524,29 +633,45 @@ footer .legal {
     <span class="section-number">III &nbsp;·&nbsp; Het sluitstuk</span>
     <h2>Het bier</h2>
 
-    <p class="lead">Een schilderij over bierdrinkers vraagt om een bier. Brouwerij De Dochter van de Korenaar uit Baarle-Hertog brouwde het.</p>
+    <p class="lead">Een schilderij over bierdrinkers vraagt om een bier. Brouwerij De Dochter van de Korenaar uit Baarle-Hertog brouwde het — een <em>three-grain triple</em> van gerst, tarwe en rogge. Een volmoutbier met hergisting op fles, gedocumenteerd in twee atlas-platen.</p>
 
-    <div class="beer-plate">
-      <div class="beer-bottle"></div>
+    <div class="atlas-plates">
+      <figure class="atlas-plate">
+        <img src="images/atlas-plate-xxvii.jpg" alt="Atlas-plaat XXVII — natuurkundige studie van de fles, etiket en ingrediënten van De Baolse Bierdrinkers" loading="lazy">
+        <figcaption>
+          <strong>Plate XXVII</strong>
+          Natuurkundige Atlas — Tab. CXXVII. Studie van vorm, functie en samenstelling.
+        </figcaption>
+      </figure>
 
       <div>
-        <table class="spec-table">
-          <tr><th>Naam</th><td>De Baolse Bierdrinkers</td></tr>
-          <tr><th>Type</th><td>Three-grain triple</td></tr>
-          <tr><th>Brouwerij</th><td>De Dochter van de Korenaar<br><span style="font-style:italic; color:var(--ink-mute); font-size:15px;">Baarle-Hertog, België</span></td></tr>
-          <tr><th>Granen</th><td>Gerstemout, tarwemout, roggemout</td></tr>
-          <tr><th>Alcohol</th><td>ca. 9 % vol.</td></tr>
-          <tr><th>Inhoud</th><td>33 cl</td></tr>
-          <tr><th>Kleur</th><td>Amber</td></tr>
-          <tr><th>Aroma</th><td>Graan, karamel, rijp fruit</td></tr>
-          <tr><th>Serveertemp.</th><td>7 – 9 °C</td></tr>
-        </table>
+        <div class="beer-summary">
+          <h3>Kenmerken</h3>
+          <table class="spec-table">
+            <tr><th>Type</th><td>Three-grain triple</td></tr>
+            <tr><th>Granen</th><td>Gerstemout, tarwemout, roggemout</td></tr>
+            <tr><th>Kleur</th><td>Amber</td></tr>
+            <tr><th>Alcohol</th><td>ca. 9 % vol.</td></tr>
+            <tr><th>Inhoud</th><td>33 cl</td></tr>
+            <tr><th>Serveertemp.</th><td>7 – 9 °C</td></tr>
+            <tr><th>Brouwerij</th><td>De Dochter van de Korenaar<br><span style="font-style:italic; color:var(--ink-mute); font-size:15px;">Baarle-Hertog, België</span></td></tr>
+          </table>
+        </div>
 
         <div class="tasting-note">
           Volmoutbier met hergisting op fles. Vol en moutig in de mond, licht zoet, met een zalvend en rijk mondgevoel. De drie granen — gerst voor het lichaam, tarwe voor de zachtheid en het schuim, rogge voor de diepte en het karakter — verwijzen naar wat boeren in de Kempen vóór de industrialisering daadwerkelijk in hun schuurtjes brouwden.
         </div>
       </div>
     </div>
+
+    <figure class="atlas-plate" style="max-width: 720px; margin: 60px auto 0;">
+      <img src="images/atlas-plate-vii.jpg" alt="Atlas-plaat VII — gedetailleerde studie van de fles, etiket, ingrediënten en schenkdiagram van De Baolse Bierdrinkers" loading="lazy">
+      <figcaption>
+        <strong>Plate VII</strong>
+        Bier-Atlas, familie Gerstachtigen. Details van de fles, etiket, ingrediënten en schenkdiagram.
+      </figcaption>
+    </figure>
+
   </section>
 
   <!-- ====== HORECA-LOCATOR ====== -->
