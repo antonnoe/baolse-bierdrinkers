@@ -338,6 +338,13 @@ blockquote cite {
   color: var(--paper);
   font-style: italic;
   font-size: 13px;
+  overflow: hidden;
+}
+.figure-card .portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   text-align: center;
   padding: 12px;
 }
@@ -602,15 +609,12 @@ footer .legal {
 
     <p>Op vrijdag 6 februari 2026 nodigde Jan zijn modellen uit in Café 't Pleintje voor een zeventiende-eeuws, bourgondisch feest. Zijn gasten kwamen in passende kleding. Een fotograaf legde iedereen vast in precies dezelfde houding als op het schilderij — <em>"Het moet wel kloppen,"</em> aldus Jan. Ondertussen werd er brood gebroken, kip gekluifd en bier gedronken. Ook wethouder Janneke van de Laak was aanwezig.</p>
 
-    <figure class="atlas-plate" style="max-width: 720px; margin: 48px auto;">
-      <img src="images/model-de-waardin.jpg" alt="Atlas-plaat — studie van een herbergierster uit Baarle, 16e eeuw. Hoofdstudie, gelaat en blik, hoofdtooi, houding, halsketting, handen en plooiing van de rok." loading="lazy">
-      <figcaption>
-        <strong>De waardin</strong>
-        Voorbeeld van een figurant-studie. Voor elke figuur in het tafereel maakte Jan een soortgelijke plaat — hoofd, houding, kleding, attributen. Een volledige reeks volgt zodra de namen zijn vrijgegeven.
-      </figcaption>
-    </figure>
-
     <div class="figure-grid">
+      <div class="figure-card">
+        <div class="portrait"><img src="images/model-de-waardin.jpg" alt="Modelstudie van een figurante uit Baarle"></div>
+        <div class="name">Naam figurant</div>
+        <div class="role">Onbekend</div>
+      </div>
       <div class="figure-card">
         <div class="portrait">[ portret ]</div>
         <div class="name">Naam figurant</div>
