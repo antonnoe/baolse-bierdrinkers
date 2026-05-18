@@ -868,7 +868,9 @@ dialog.lightbox img {
     const loveren = [51.4505, 4.9180];
     const map = L.map(el, { scrollWheelZoom: false }).setView(loveren, 10);
 
-    const STADIA_KEY = 'a7e52dd0-1474-4745-b180-5b7c8deddece';
+    const STADIA_KEY = location.hostname.endsWith('baolsebierdrinkers.nl')
+      ? '239098f2-3350-440a-9f3f-3fc75180a41a'
+      : 'a7e52dd0-1474-4745-b180-5b7c8deddece';
 
     L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?api_key=' + STADIA_KEY, {
       minZoom: 7,
