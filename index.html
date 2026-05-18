@@ -353,6 +353,10 @@ blockquote cite {
   height: 100%;
   object-fit: cover;
   display: block;
+  cursor: zoom-in;
+  transition: opacity 0.2s ease;
+}
+.figure-card .portrait img:hover { opacity: 0.88;
   text-align: center;
   padding: 12px;
 }
@@ -536,6 +540,29 @@ footer .legal {
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.05em;
   color: var(--ink-mute);
+}
+
+/* === LIGHTBOX === */
+dialog.lightbox {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  max-width: 95vw;
+  max-height: 95vh;
+  overflow: visible;
+}
+dialog.lightbox::backdrop {
+  background: rgba(20, 14, 8, 0.92);
+  backdrop-filter: blur(4px);
+}
+dialog.lightbox img {
+  display: block;
+  max-width: 95vw;
+  max-height: 95vh;
+  width: auto;
+  height: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  cursor: zoom-out;
 }
 
 /* === RESPONSIVE === */
@@ -765,6 +792,27 @@ footer .legal {
     © 2026 Jan Donders &nbsp;·&nbsp; Alle rechten voorbehouden &nbsp;·&nbsp; <a href="mailto:info@jandonders.com">Contact</a>
   </p>
 </footer>
+
+<dialog class="lightbox" aria-label="Vergrote weergave">
+  <img src="" alt="">
+</dialog>
+
+<script>
+  (function () {
+    const dlg = document.querySelector('.lightbox');
+    const dlgImg = dlg.querySelector('img');
+    document.querySelectorAll('.figure-card .portrait img').forEach(function (img) {
+      img.addEventListener('click', function () {
+        dlgImg.src = img.src;
+        dlgImg.alt = img.alt;
+        dlg.showModal();
+      });
+    });
+    dlg.addEventListener('click', function (e) {
+      if (e.target === dlg || e.target === dlgImg) dlg.close();
+    });
+  })();
+</script>
 
 </body>
 </html>
