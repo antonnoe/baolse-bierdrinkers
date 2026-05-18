@@ -667,7 +667,7 @@ dialog.lightbox img {
     <div class="painting-frame">
       <img src="images/de-baolse-bierdrinkers.jpg" alt="De Baolse Bierdrinkers — schilderij van Jan Donders. Een herberg in Loveren, 17e eeuw, met meer dan twintig figuren rond de schenktafel, een varken, hond, hanen en een glas-in-loodraam met zicht op de Belgische kerk." class="painting-image">
     </div>
-    <p class="painting-caption">De Baolse Bierdrinkers in de herberg van Loveren in de 17e eeuw, acryl op doek, Jan Donders, voltooid 2026.</p>
+    <p class="painting-caption">De Baolse Bierdrinkers in de herberg van Loveren in de 17e eeuw, olieverf op doek, Jan Donders, voltooid 2026.</p>
 
     <p style="margin-top: 48px;">In 2022 begon Jan Donders aan de voorstudies. Vier jaar werk, ruim honderd herbergtaferelen bestudeerd vóór de eerste penseelstreek, ruim vier uur per gezicht. Op 1 mei 2026 werd het doek onthuld in de Remigiuskerk in Baarle-Hertog, bij de opening van de eerste Grensloze Kunstroute — door de burgemeester van Baarle-Nassau, mw. Marjon de Hoon-Veelenturf, en de burgemeester van Baarle-Hertog, dhr. Philip Loots.</p>
 
@@ -868,13 +868,15 @@ dialog.lightbox img {
     const loveren = [51.4505, 4.9180];
     const map = L.map(el, { scrollWheelZoom: false }).setView(loveren, 10);
 
-    L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg', {
+    const STADIA_KEY = 'a7e52dd0-1474-4745-b180-5b7c8deddece';
+
+    L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?api_key=' + STADIA_KEY, {
       minZoom: 7,
       maxZoom: 14,
       attribution: 'Map &copy; <a href="https://stadiamaps.com/" target="_blank" rel="noopener">Stadia Maps</a> &middot; <a href="https://stamen.com/" target="_blank" rel="noopener">Stamen Design</a> &middot; <a href="https://openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> &middot; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner_labels/{z}/{x}/{y}.png', {
+    L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner_labels/{z}/{x}/{y}.png?api_key=' + STADIA_KEY, {
       minZoom: 7,
       maxZoom: 14,
       opacity: 0.75,
